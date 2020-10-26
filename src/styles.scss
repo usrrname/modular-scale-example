@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import '_variables';
+@media screen and (max-width: 578px)
+{
+  :root { --scale: 1.125 }
+}
+@media screen and (min-width: 768px)
+{
+  :root { --scale: 1.25 }
+}
+
+@import "bootstrap";

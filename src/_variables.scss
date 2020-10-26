@@ -1,0 +1,129 @@
+@use "sass:math";
+@use "sass:map";
+
+// Colors
+$stone: #ccc;
+$slate: #666;
+$burgundy: #7d1233;
+
+$body-bg: $stone;
+$body-color: $slate;
+$font-family-base: "Open Sans";
+$link-hover-color: teal;
+
+$theme-colors: (
+  "primary": $burgundy,
+);
+// The following should be in _variables.scss
+
+@font-face {
+  font-family: $font-family-base;
+  src: url("./assets/fonts/OpenSans-Light.ttf") format("truetype"),
+    url("./assets/fonts/OpenSans-Regular.ttf") format("truetype"),
+    url("./assets/fonts/OpenSans-SemiBold.ttf") format("truetype"),
+    url("./assets/fonts/OpenSans-ExtraBold.ttf") format("truetype");
+}
+
+$font-size: 100%;
+$font-size-base: 1rem;
+
+$ratio: 1.25;
+
+@function toRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@function fontscale($ratio, $exponent) {
+  $result: $font-size * math.pow($ratio, $exponent);
+  @return $result;
+}
+
+$h6-font-size: fontscale($ratio, 1);
+$h5-font-size: fontscale($ratio, 2);
+$h4-font-size: fontscale($ratio, 3);
+$h3-font-size: fontscale($ratio, 4);
+$h2-font-size: fontscale($ratio, 5);
+$h1-font-size: fontscale($ratio, 6);
+$font-size-sm: fontscale($ratio, -1);
+$font-size-xs: fontscale($ratio, -2);
+$font-size-xxs: fontscale($ratio, -3);
+
+:root {
+  --font-size: #{$font-size};
+  --font-family-base: #{$font-family-base};
+  --font-family-sans-serif: #{$font-family-base};
+  --scale: #{$ratio};
+  --font-size-1: 1rem;
+  --font-size-2: calc(var(--scale) * var(--font-size-1));
+  --font-size-3: calc(var(--scale) * var(--font-size-2));
+  --font-size-4: calc(var(--scale) * var(--font-size-3));
+  --font-size-5: calc(var(--scale) * var(--font-size-4));
+  --font-size-6: calc(var(--scale) * var(--font-size-5));
+  --font-size-sm: #{$font-size-sm};
+  --font-size-xs: #{$font-size-xs};
+  --font-size-xxs: #{$font-size-xxs};
+
+  body {
+    line-height: inherit;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: inherit;
+      padding: inherit;
+      line-height: inherit;
+    }
+    h1,
+    .h1 {
+      font-size: $h1-font-size;
+      font-size: var(--font-size-6);
+    }
+
+    h2,
+    .h2 {
+      font-size: $h2-font-size;
+      font-size: var(--font-size-5);
+    }
+
+    h3,
+    .h3 {
+      font-size: $h3-font-size;
+      font-size: var(--font-size-4);
+    }
+
+    h4,
+    .h4 {
+      font-size: $h4-font-size;
+      font-size: var(--font-size-3);
+    }
+
+    h5,
+    .h5 {
+      font-size: $h5-font-size;
+      font-size: var(--font-size-2);
+    }
+
+    h6,
+    .h6 {
+      font-size: $h6-font-size;
+      font-size: var(--font-size-1);
+    }
+    p {
+      font-size: $font-size-sm;
+      font-size: var(--font-size-sm);
+      line-height: 1.15;
+    }
+    .small {
+      font-size: $font-size-xs;
+      font-size: var(--font-size-xs);
+    }
+    .xsmall {
+      font-size: $font-size-xxs;
+      font-size: var(--font-size-xxs);
+    }
+  }
+
+}
