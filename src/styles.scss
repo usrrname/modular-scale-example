@@ -1,4 +1,5 @@
 @import '_variables';
+
 @media screen and (max-width: 578px)
 {
   :root { --scale: 1.125 }
@@ -8,4 +9,5 @@
   :root { --scale: 1.25 }
 }
 
+// import bootstrap at the end to override its styles
 @import "bootstrap";
