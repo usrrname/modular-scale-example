@@ -1,0 +1,21 @@
+@import "_variables";
+
+@media screen and (max-width: 578px) {
+  :root {
+    --scale: 1.125;
+    p {
+      line-height: 2.5;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  :root {
+    --scale: 1.25;
+    p {
+      line-height: 1.75;
+    }
+  }
+}
+
+// import bootstrap at the end to override its styles
+@import "bootstrap";
